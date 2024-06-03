@@ -15,7 +15,9 @@ insert into api.todos (task) values
 create role web_anon nologin;
 
 grant usage on schema api to web_anon;
-grant select on api.todos to web_anon;
+-- geef alle rechten (dus all in plaats van select)
+grant all on api.todos to web_anon;
+grant all on sequence api.todos_id_seq to web_anon;
 
 create role authenticator noinherit login password 'postgres';
 grant web_anon to authenticator;
