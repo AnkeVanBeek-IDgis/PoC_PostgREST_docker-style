@@ -1,4 +1,5 @@
 -- script voor PoC_PostgREST
+-- dit is het deel dat de database opbouwt, met alle rollen/rechten etc.
 
 create schema api;
 

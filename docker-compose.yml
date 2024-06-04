@@ -1,4 +1,11 @@
-# docker-compose.yml
+# Deze file regelt de definitie en beheer van de applicatie. 
+# De verschillende functies en componenten:
+# - definiëren en vullen van de volumes
+# - configureren van de services
+
+# Swagger geeft de mogelijkheid een browsergebaseerde editor te gebruiken
+#   waar je je API-specificaties kunt schrijven en bewerken in de OpenAPI Specification (OAS) formaat.
+#   Het biedt real-time feedback en validatie van je specificaties.
 
 volumes:
     db_data:
@@ -9,6 +16,7 @@ services:
         ports:
             - "3000:3000"
         environment:
+            # PGRST_DB_URI=postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@database-postgres:5432/${DATABASE_NAME}
             PGRST_DB_URI: postgres://authenticator:postgres@db:5432/postgres
             PGRST_OPENAPI_SERVER_PROXY_URI: http://127.0.0.1:3000
             PGRST_DB_SCHEMA: api
